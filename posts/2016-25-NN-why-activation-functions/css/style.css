@@ -1,0 +1,8 @@
+.floatrightimgcontainer{
+  float : left;
+}
+
+img {
+  display: inline-block;
+  margin: auto;
+}
