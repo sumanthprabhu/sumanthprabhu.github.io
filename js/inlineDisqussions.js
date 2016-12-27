@@ -39,15 +39,16 @@ var disqus_url;
       settings = $.extend({}, defaults, options);
 
       // Append #disqus_thread to body if it doesn't exist yet.
-      if ($('#disqussions_wrapper').length === 0) {
-        $('<div id="disqussions_wrapper"></div>').appendTo($('body'));
-      }
-      if ($('#disqus_thread').length === 0) {
-        $('<div id="disqus_thread"></div>').appendTo('#disqussions_wrapper');
-      }
-      else {
-        mainThreadHandler();
-      }
+      // if ($('#disqussions_wrapper').length === 0) {
+      //   $('<div id="disqussions_wrapper"></div>').appendTo($('body'));
+      // }
+      // if ($('#disqus_thread').length === 0) {
+      //   $('<div id="disqus_thread"></div>').appendTo('#disqussions_wrapper');
+      // }
+      // else {
+      //   mainThreadHandler();
+      // }
+      mainThreadHandler();
       if (settings.highlighted) {
         $('<div id="disqussions_overlay"></div>').appendTo($('body'));
       }
