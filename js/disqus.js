@@ -1,13 +1,13 @@
 var disqus_shortname = 'sumanthprabhu';
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://disqus.com/forums/lambdaoinks/embed.js';
+        dsq.src = 'https://disqus.com/forums/lambdaoinks/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 
     (function () {
       var s = document.createElement('script'); s.async = true;
-      s.src = 'http://disqus.com/forums/lambdaoinks/count.js';
+      s.src = 'https://disqus.com/forums/lambdaoinks/count.js';
       (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 
