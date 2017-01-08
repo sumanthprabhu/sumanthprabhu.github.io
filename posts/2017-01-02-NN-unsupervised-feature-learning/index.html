@@ -1,0 +1,176 @@
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Home - Sumanth Prabhu's blog</title>
+
+        <!--BOOTSTRAP-->
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+        <!--font awesome-->
+        <link href="../../css/font-awesome.css" rel="stylesheet">
+
+        <link href="css/style.css" rel="stylesheet">
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+        <script src="js/bootstrap.min.js"></script>
+
+    </head>
+
+    <body>
+        <div id="wrap">
+            <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+                <div class="container">
+                  <div class="navbar-header">
+                        <a class="navbar-brand active" href="https://sumanthprabhu.github.io/index.html" style="font-size:20px;">Home</a>
+                    </div>
+                    <!--normal header-->
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="../../index.html"><span class="glyphicon glyphicon-pencil"></span>  Blog</a></li>
+                            <!-- <li><a href="./about.html"><span class="glyphicon glyphicon-user"></span>  About</a></li> -->
+                            <li><a href="../../contact.html"><span class="glyphicon glyphicon-envelope"></span>  Contact</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+            </nav>
+
+
+            <div class="container">
+              <div class="row">
+                      <div class="col-md-8">
+                          <h1> Autoencoders </h1>
+                          <div class="info">
+                            <p style="font-family:CMSS; font-size:120%">Posted on January 8, 2017</p>
+                          </div>
+                          </br>
+
+                          <p>When it comes to data science problems, neural networks are one of the fastest growing class of algorithms
+                            in terms of popularity.  In my last post, I spoke about the role of activation functions in neural networks.
+                            Today, we will talk a specific type of neural network for unsupervised feature learning - the autoencoders
+                          </p>
+                          <h3> What are autoencoders ?
+                          </h3>
+                          <p>
+                            Autoencoders are neural networks that use the input variables to do the training instead of having a
+                            separate class of labels for training. In other words, the output of the neural network is same as the input.
+                            Mathematically speaking, it is a neural network trying to learn the identity function.
+                            Following is a sample autoencoder
+                          </p>
+                          <img src="images/autoencoder_architecture.png" alt style>
+                          <div class="spaceafterimg">
+                            <br/>
+                          </div>
+                          <h3>
+                            Why learn the identity function ?
+                          </h3>
+
+                          <p>Well, there are lots of applications for an autoencoder. The most popular application currently is
+                            pre-training deep neural networks. The idea behind this is to start the training with a more meaningful set
+                            of weights learned by the autoencoder rather than random initial weights.Another common application is
+                            dimensionality reduction.
+                            Majority of the machine learning tasks demand that you generate a compressed representation of the data
+                            in order to be able to build your model with a reasonable time complexity and space complexity.
+                            The process of extracting this compressed representation is called dimensionality reduction.
+                            Dimensionality reduction always involves a certain amount of loss in information. The idea is to balance out
+                            this loss with the gain in computational effort. For the purpose of the post,
+                            we will stick to dimensionality reduction.
+
+                          </p>
+                          <h3>So how do we reduce the number of dimensions ?
+                          </h3>
+                          <p> We already spoke about how autoencoders basically try to reconstruct the input. If the hidden units were
+                            same in number as the input dimension, we would ideally have zero error in reconstruction.
+                            What we do is we restrict the number of hidden units and train the autoencoder to reconstruct the input
+                            with minimal error.
+                          </p>
+                          <h3> Ok, what’s so special about autoencoders in comparison to other dimensionality reduction techniques like PCA ?
+                          </h3>
+
+                          <p> Principal Component Analysis a.k.a PCA projects the input onto a lower dimensional surface.  But it works
+                            on the assumption that the data has linearly correlated features.  Let’s understand what that means.
+                            The following figures shows the result of applying PCA on linearly correlated data and non linearly correlated data
+                          </p>
+
+                          <img src="images/pca_will_work.png" alt >
+                          <img src="images/pca_will_fail.png" alt >
+
+                          <div class="spaceafterimg">
+                            <br />
+                          </div>
+                          <p> Image courtesy –
+                            <a href="https://www.projectrhea.org/rhea/index.php/PCA_Theory_Examples">
+                              https://www.projectrhea.org/rhea/index.php/PCA_Theory_Examples
+                            </a>.
+                          </p>
+                          <p>
+                            On linearly correlated data , PCA does a nice job of reducing the dimensions while on non linearly correlated data,
+                            PCA fails.  Autoencoders are much more powerful than techniques like PCA in terms of being able to generate
+                            non linear encodings. In my previous
+                            <a href="https://sumanthprabhu.github.io/posts/2016-25-NN-why-activation-functions/">post</a>,
+                            I have explained how activation functions introduce non linearity
+                            in neural networks.
+                          </p>
+                          <h3>
+                            Practical comparison of PCA and Autoencoders
+                          </h3>
+                          <p>
+                            To compare PCA and autoencoders, let’s see how each of them perform on the MNIST digit dataset.
+                            We generate 2d representations and project them on to a plane with each class represented by a
+                            different colour. The following visualization shows how PCA performs.
+                          </p>
+                          <img src="images/pca.png" alt >
+                          <div class="spaceafterimg">
+                            <br />
+                          </div>
+                          <p> The following visualization shows how the autoencoders perform. </p>
+                          <img src="images/autoencoder.png" alt >
+                          <div class="spaceafterimg">
+                            <br />
+                          </div>
+                          <p> We see that the representation given by autoencoders turn out to be more separable than what PCAs would give
+                          </p>
+                          <div class="spaceafterimg">
+                            <br />
+                          </div>
+                          <p> In conclusion, autoencoders are an interesting approach to unsupervised learning. They find a lot of
+                            applications in machine learning. We saw how they can be used in dimensionality reduction.
+                          </p>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+                <script src="../../js/inlineDisqussions.js"></script>
+                <script src="../../js/disqus.js"></script>
+
+                <div id="disqus_thread"></div>
+                <script>
+                var disqus_config = function () {
+                  this.page.url = "https://sumanthprabhu.github.io/posts/2016-25-NN-why-activation-functions/index.html";  // Replace PAGE_URL with your page's canonical URL variable
+                  this.page.identifier = "posts/2016-25-NN-why-activation-functions/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                  this.page.title = "https://sumanthprabhu.github.io/posts/2016-25-NN-why-activation-functions/index.html";
+                };
+                (function() { // DON'T EDIT BELOW THIS LINE
+                  var d = document, s = d.createElement('script');
+                  s.src = 'https://sumanthprabhu.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+                  <script id="dsq-count-scr" src="https://sumanthprabhu.disqus.com/count.js" async></script>
+  </body>
+
+</html>
