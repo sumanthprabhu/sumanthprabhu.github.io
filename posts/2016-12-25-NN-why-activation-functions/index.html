@@ -1,0 +1,148 @@
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Home - Sumanth Prabhu's blog</title>
+
+        <!--BOOTSTRAP-->
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+        <!--font awesome-->
+        <link href="../../css/font-awesome.css" rel="stylesheet">
+
+        <link href="css/style.css" rel="stylesheet">
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+        <script src="js/bootstrap.min.js"></script>
+
+    </head>
+
+    <body>
+        <div id="wrap">
+            <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+                <div class="container">
+                  <div class="navbar-header">
+                        <a class="navbar-brand active" href="./index.html" style="font-size:20px;"> Home </a>
+                    </div>
+                    <!--normal header-->
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="../../index.html"><span class="glyphicon glyphicon-pencil"></span>  Blog</a></li>
+                            <!-- <li><a href="./about.html"><span class="glyphicon glyphicon-user"></span>  About</a></li> -->
+                            <li><a href="../../contact.html"><span class="glyphicon glyphicon-envelope"></span>  Contact</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+            </nav>
+
+
+            <div class="container">
+              <div class="row">
+                      <div class="col-md-8">
+                          <h1> Why are activation functions needed in neural networks ? </h1>
+                          <div class="info">
+                            <p style="font-family:CMSS; font-size:120%">Posted on December 25, 2016</p>
+                            neural networks, activation functions
+                          </div>
+                          </br>
+
+                          <p>Data science has become a pretty popular field these days.
+                            And the one approach that is especially gaining popularity is Deep learning.
+                            Though I won’t be covering the details of how neural networks work
+                            (at least not in this post), I wanted to talk about one important component of
+                            neural networks which a lot of people seem to misinterpret –
+                            the activation function.
+                          </p>
+                          <p>First, let’s understand what activation functions are.
+                            Activation functions help define the output of a node given a set of inputs.
+                            These outputs combined together help decide the class
+                            (if we are talking about a <a href="https://en.wikipedia.org/wiki/Statistical_classification">classification problem</a>) or the value
+                            (if we are talking about a <a href="https://en.wikipedia.org/wiki/Regression_analysis">regression problem</a>)
+                          </p>
+                          <img src="images/activation_function.png" alt style>
+                          <div class="spaceafterimg">
+                            <br/>
+                          </div>
+
+                          <p>The real purpose of activation functions comes into play when we want to map
+                            the input space to a different space. We would want to do this when the data
+                            is not separable in the current representation.
+                            Let’s understand this with the example of a binary classification problem
+                          </p>
+                          <img src="images/figure_2.png" height="400" width="700" alt style>
+                          <div class="spaceafterimg">
+                              <br/>
+                          </div>
+                          <p> The data distribution is as shown in the above figure.
+                            We apply logistic regression to classify the points.
+                            The decision boundary does a fair job of grouping the points into their
+                            corresponding classes.
+                            But this one was easy. Let’s try a more difficult problem.
+                          </p>
+                          <img src="images/figure_1.png" height="400" width="700" alt style>
+                          <div class="spaceafterimg">
+                            <br />
+                          </div>
+
+                          <p> The input data is distributed as shown in the left most plot.
+                            When we apply logistic regression now, it still gives a linear decision
+                            boundary.  But clearly this won’t work. A neural network on the other hand is
+                            able to capture a better decision boundary as shown.
+                          </p>
+
+                          <div class="floatrightimgcontainer">
+                            <img src="images/convnetjs_1.png" height="300" width="300" alt style="float:left">
+                            <img src="images/convnetjs.png" height="300" width="300" alt >
+                          </div>
+                          <div class="spaceafterimg">
+                            <br />
+                          </div>
+                          <p> The figure shown above has been borrowed from Andrej Karpathy’s
+                            <a href="http://cs.stanford.edu/people/karpathy/convnetjs/">ConvnetJS demo
+                            </a>. Internally, the activation function helps learn a representation similar
+                            to the one shown above which makes the problem more or less linearly
+                            separable.
+                          </p>
+                          <p>
+                            In summary – Activation functions help take non-linear
+                            combinations of the inputs to generate non linear
+                            decision boundaries to be able to give better
+                            classification results.
+                          </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+                <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+                <script src="../../js/inlineDisqussions.js"></script>
+                <script src="../../js/disqus.js"></script>
+
+                <div id="disqus_thread"></div>
+                <script>
+                var disqus_config = function () {
+                  this.page.url = "https://sumanthprabhu.github.io/posts/2016-12-25-NN-why-activation-functions/index.html";  // Replace PAGE_URL with your page's canonical URL variable
+                  this.page.identifier = "posts/2016-12-25-NN-why-activation-functions/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                  this.page.title = "https://sumanthprabhu.github.io/posts/2016-12-25-NN-why-activation-functions/index.html";
+                };
+                (function() { // DON'T EDIT BELOW THIS LINE
+                  var d = document, s = d.createElement('script');
+                  s.src = 'https://sumanthprabhu.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+                  <script id="dsq-count-scr" src="https://sumanthprabhu.disqus.com/count.js" async></script>
+  </body>
+
+</html>
